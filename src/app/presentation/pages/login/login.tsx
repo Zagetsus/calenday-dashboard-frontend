@@ -1,10 +1,13 @@
 import { useRouter } from 'next/router';
+import { useState } from 'react';
 import { UseFormProps, useForm } from 'react-hook-form';
 import { Authentication } from '~/app/domain/usecases';
 import {
+  Alert,
   Box,
   Button,
   InputTag,
+  Snackbar,
   Typography
 } from '~/app/presentation/components';
 import Email from '~/app/presentation/components/icons/email/email';
@@ -17,10 +20,23 @@ type LoginComponentProps = {
 };
 
 function LoginComponent({ validation, authentication }: LoginComponentProps) {
+  const [snackbar, setSnackbar] = useState(false);
+
   const { control, handleSubmit } = useForm<Authentication.Params>({
     ...validation,
     mode: 'onTouched'
   });
+
+  const handleClose = (
+    event?: React.SyntheticEvent | Event,
+    reason?: string
+  ) => {
+    if (reason === 'clickaway') {
+      return;
+    }
+
+    setSnackbar(false);
+  };
 
   const router = useRouter();
   const classes = makeStyles();
@@ -29,9 +45,9 @@ function LoginComponent({ validation, authentication }: LoginComponentProps) {
     authentication
       .signIn(params)
       .then(() => {
-        router.push('/dashboard');
+        router.push('/scheduling');
       })
-      .catch(console.error);
+      .catch(() => setSnackbar(true));
   }
 
   return (
@@ -70,6 +86,18 @@ function LoginComponent({ validation, authentication }: LoginComponentProps) {
           </Box>
         </form>
       </Box>
+
+      <Snackbar open={snackbar} autoHideDuration={6000} onClose={handleClose}>
+        <Alert
+          elevation={6}
+          variant='filled'
+          onClose={handleClose}
+          severity='error'
+          sx={{ width: '100%' }}
+        >
+          Email e/ou senha incorretos!
+        </Alert>
+      </Snackbar>
     </Box>
   );
 }

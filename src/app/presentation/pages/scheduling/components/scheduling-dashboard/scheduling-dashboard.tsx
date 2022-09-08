@@ -1,7 +1,10 @@
 import { Box, Button, Typography } from '~/app/presentation/components';
+import { SchedulingDashboardProps } from '~/app/presentation/pages/scheduling/interfaces';
 import makeStyles from './scheduling-dasboard-styles';
 
-function SchedulingDashboardComponent() {
+function SchedulingDashboardComponent({
+  handleOpenCreateModal
+}: SchedulingDashboardProps) {
   const classes = makeStyles();
 
   return (
@@ -24,7 +27,9 @@ function SchedulingDashboardComponent() {
           <Typography className='text'>CANCELADOS</Typography>
         </Box>
         <Box>
-          <Button variant='contained'>Novo agendamento</Button>
+          <Button onClick={handleOpenCreateModal} variant='contained'>
+            Novo agendamento
+          </Button>
         </Box>
       </Box>
     </Box>

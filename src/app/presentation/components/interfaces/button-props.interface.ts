@@ -1,5 +1,6 @@
 export interface ButtonProps {
   label?: string;
+  fullWidth?: boolean;
   variantSize?: 'small' | 'medium' | 'large' | 'full';
   disabled?: boolean;
   variantStyle?: 'contained' | 'outlined' | 'text';

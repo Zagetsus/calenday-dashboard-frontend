@@ -1,3 +1,4 @@
+export * from './alert';
 export * from './appbar';
 export * from './avatar';
 export * from './badge';
@@ -21,8 +22,11 @@ export * from './list-item-icon';
 export * from './list-item-text';
 export * from './menu';
 export * from './menu-item';
+export * from './modal';
 export * from './pagination';
+export * from './select';
 export * from './slide';
+export * from './snackbar';
 export * from './toolbar';
 export * from './tooltip';
 export * from './typography';

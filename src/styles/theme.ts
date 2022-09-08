@@ -132,6 +132,42 @@ const theme = createTheme({
           }
         }
       ]
+    },
+    MuiSelect: {
+      styleOverrides: {
+        select: {
+          fontSize: '0.875rem',
+          fontWeight: 400,
+          lineHeight: '1.05rem',
+          height: '2rem',
+          display: 'flex',
+          alignItems: 'center',
+          padding: '0.6rem 0rem 0.4rem 0.969rem',
+          color: '#525252',
+          borderRadius: '0.5rem',
+          transition: 'all 0.2s ease',
+          '&:hover': {
+            color: '#222222',
+            backgroundColor: '#F7F7F7'
+          }
+        },
+        icon: {
+          color: '#525252',
+          margin: '0.3rem 0.5rem'
+        },
+        standard: {
+          border: '1px solid #ced4da',
+          transition: 'all 0.2s ease',
+          '&:hover': {
+            border: '2px solid #0A4182',
+            transition: 'all 0.2s ease'
+          },
+          '&:focus': {
+            border: '2px solid #0A4182',
+            transition: 'all 0.2s ease'
+          }
+        }
+      }
     }
   }
 });

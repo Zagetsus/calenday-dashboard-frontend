@@ -1,5 +1,7 @@
+import { useState } from 'react';
 import { Box, Typography } from '~/app/presentation/components';
 import {
+  SchedulingCreateModalTag,
   SchedulingDashboardTag,
   SchedulingPanelTag,
   SideFlapTag,
@@ -8,15 +10,23 @@ import {
 import makeStyles from './scheduling-styles';
 
 function SchedulingComponent() {
+  const [createModal, setCreateModal] = useState(false);
   const classes = makeStyles();
 
   return (
     <Box className={classes.container}>
       <TitleTag>Agendamentos</TitleTag>
 
-      <SchedulingDashboardTag />
+      <SchedulingDashboardTag
+        handleOpenCreateModal={() => setCreateModal(!createModal)}
+      />
 
       <SchedulingPanelTag />
+
+      <SchedulingCreateModalTag
+        open={createModal}
+        handleClose={() => setCreateModal(!createModal)}
+      />
 
       <SideFlapTag />
     </Box>

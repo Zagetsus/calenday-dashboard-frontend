@@ -1,4 +1,6 @@
+export * from './arrow-down';
 export * from './bell';
+export * from './closed';
 export * from './customer';
 export * from './dashboard';
 export * from './employees';

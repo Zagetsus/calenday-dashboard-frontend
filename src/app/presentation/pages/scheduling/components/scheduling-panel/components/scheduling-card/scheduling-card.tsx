@@ -7,19 +7,14 @@ function SchedulingCardComponent({ data }: SchedulingCardProps) {
   const { customer, service, start, end } = data;
   const classes = makeStyles();
 
-  const gridStart = DateUtils.AvailableAppointmentHours.findIndex(
-    item => item === start
-  );
+  const gridRowStart =
+    DateUtils.AvailableAppointmentHours.findIndex(item => item === start) + 1;
 
-  const gridEnd = DateUtils.AvailableAppointmentHours.findIndex(
-    item => item === end
-  );
+  const gridRowEnd =
+    DateUtils.AvailableAppointmentHours.findIndex(item => item === end) + 1;
 
   return (
-    <Box
-      style={{ gridRowStart: gridStart + 1, gridRowEnd: gridEnd + 1 }}
-      className={classes.container}
-    >
+    <Box style={{ gridRowStart, gridRowEnd }} className={classes.container}>
       <Typography className={classes.title}>{service}</Typography>
       <Box className={classes.row}>
         <Typography className={'title'}>Cliente</Typography>

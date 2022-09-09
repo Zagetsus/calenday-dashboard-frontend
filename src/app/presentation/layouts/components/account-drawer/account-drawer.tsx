@@ -1,3 +1,4 @@
+import { useRouter } from 'next/router';
 import React from 'react';
 import {
   CustomerIcon,
@@ -23,36 +24,38 @@ function AccountDrawerComponent() {
   const classes = makeStyles();
   const [open, setOpen] = React.useState(false);
 
+  const router = useRouter();
+
   const pages = [
     {
       name: 'Minha conta',
       icon: <Avatar className={classes.avatar}>L</Avatar>,
-      url: '/'
+      url: '/dashboard'
     },
     {
       name: 'Dashboard',
       icon: <DashboardIcon fill='#fff' />,
-      url: '/'
+      url: '/dashboard'
     },
     {
       name: 'Agendamentos',
       icon: <SchedulingIcon fill='#fff' />,
-      url: '/'
+      url: '/scheduling'
     },
     {
       name: 'Estoque',
       icon: <InventoryIcon fill='#fff' />,
-      url: '/'
+      url: '/inventary'
     },
     {
       name: 'Clientes',
       icon: <CustomerIcon fill='#fff' />,
-      url: '/'
+      url: '/customers'
     },
     {
       name: 'Funcionários',
       icon: <EmployeesIcon fill='#fff' />,
-      url: '/'
+      url: '/employees'
     }
   ];
 
@@ -63,6 +66,7 @@ function AccountDrawerComponent() {
         {pages.map(item => (
           <ListItem key={`nav-${item.name}`} disablePadding>
             <ListItemButton
+              onClick={() => router.push(item.url)}
               sx={{
                 minHeight: 48,
                 justifyContent: open ? 'initial' : 'center',

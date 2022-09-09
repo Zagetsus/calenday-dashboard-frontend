@@ -1,3 +1,4 @@
+export * from './dashboard-average-ticket-and-service-chart';
 export * from './dashboard-general-average';
 export * from './dashboard-heading';
 export * from './dashboard-main-resume';

@@ -1,5 +1,6 @@
 import { Box } from '~/app/presentation/components';
 import {
+  DashboardAverageTicketAndServiceChartTag,
   DashboardGeneralAverageTag,
   DashboardHeadingTag,
   DashboardMainResumeTag,
@@ -20,6 +21,8 @@ function DashboardComponent() {
             date={'Agosto 2022'}
             averageTime={'01 h: 25'}
           />
+
+          <DashboardAverageTicketAndServiceChartTag />
         </Box>
         <Box>
           <DashboardTopEmployeesTag />

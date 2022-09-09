@@ -45,7 +45,7 @@ function LoginComponent({ validation, authentication }: LoginComponentProps) {
     authentication
       .signIn(params)
       .then(() => {
-        router.push('/scheduling');
+        router.push('/dashboard');
       })
       .catch(() => setSnackbar(true));
   }

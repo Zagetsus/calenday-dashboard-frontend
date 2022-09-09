@@ -18,7 +18,7 @@ export default function handleSSRGuest<P>(fn: GetServerSideProps<P>) {
     if (cookie) {
       return {
         redirect: {
-          destination: '/scheduling',
+          destination: '/dashboard',
           permanent: false
         }
       };

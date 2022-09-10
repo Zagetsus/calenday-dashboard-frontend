@@ -1,4 +1,4 @@
-import { makeDashboard } from '~/app/main/factories/pages';
+import { makeCustomers } from '~/app/main/factories/pages';
 import { BaseLayout } from '~/app/presentation/layouts';
 import handleSSRAuth from '~/pages/_handles/handle-ssr-auth';
 
@@ -9,7 +9,7 @@ export const getServerSideProps = handleSSRAuth(async () => {
 });
 
 function Dashboard() {
-  return <BaseLayout>{makeDashboard()}</BaseLayout>;
+  return <BaseLayout>{makeCustomers()}</BaseLayout>;
 }
 
 export default Dashboard;

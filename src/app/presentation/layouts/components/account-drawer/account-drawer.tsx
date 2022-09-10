@@ -55,10 +55,10 @@ function AccountDrawerComponent() {
       name: 'Estoque',
       icon: (
         <InventoryIcon
-          fill={router.pathname === '/inventary' ? '#FFFFFF' : '#919191'}
+          fill={router.pathname === '/inventory' ? '#FFFFFF' : '#919191'}
         />
       ),
-      url: '/inventary'
+      url: '/inventory'
     },
     {
       name: 'Clientes',

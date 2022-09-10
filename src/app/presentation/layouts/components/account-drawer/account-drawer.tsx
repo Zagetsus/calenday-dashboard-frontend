@@ -18,7 +18,8 @@ import {
   ListItemText,
   Toolbar
 } from '~/app/presentation/components/mui';
-import makeStyles, { Drawer } from './account-drawer-styles';
+import theme from '~/styles/theme';
+import makeStyles, { Drawer, ListItemButtonSx } from './account-drawer-styles';
 
 function AccountDrawerComponent() {
   const classes = makeStyles();
@@ -30,31 +31,51 @@ function AccountDrawerComponent() {
     {
       name: 'Minha conta',
       icon: <Avatar className={classes.avatar}>L</Avatar>,
-      url: '/dashboard'
+      url: '/minha-conta'
     },
     {
       name: 'Dashboard',
-      icon: <DashboardIcon fill='#fff' />,
+      icon: (
+        <DashboardIcon
+          fill={router.pathname === '/dashboard' ? '#FFFFFF' : '#919191'}
+        />
+      ),
       url: '/dashboard'
     },
     {
       name: 'Agendamentos',
-      icon: <SchedulingIcon fill='#fff' />,
+      icon: (
+        <SchedulingIcon
+          fill={router.pathname === '/scheduling' ? '#FFFFFF' : '#919191'}
+        />
+      ),
       url: '/scheduling'
     },
     {
       name: 'Estoque',
-      icon: <InventoryIcon fill='#fff' />,
+      icon: (
+        <InventoryIcon
+          fill={router.pathname === '/inventary' ? '#FFFFFF' : '#919191'}
+        />
+      ),
       url: '/inventary'
     },
     {
       name: 'Clientes',
-      icon: <CustomerIcon fill='#fff' />,
+      icon: (
+        <CustomerIcon
+          fill={router.pathname === '/customers' ? '#FFFFFF' : '#919191'}
+        />
+      ),
       url: '/customers'
     },
     {
       name: 'Funcionários',
-      icon: <EmployeesIcon fill='#fff' />,
+      icon: (
+        <EmployeesIcon
+          fill={router.pathname === '/employees' ? '#FFFFFF' : '#919191'}
+        />
+      ),
       url: '/employees'
     }
   ];
@@ -68,9 +89,19 @@ function AccountDrawerComponent() {
             <ListItemButton
               onClick={() => router.push(item.url)}
               sx={{
-                minHeight: 48,
+                ...ListItemButtonSx,
                 justifyContent: open ? 'initial' : 'center',
-                px: 2.5
+                backgroundColor:
+                  router.pathname === item.url
+                    ? theme.palette.primary.main
+                    : 'transparent',
+
+                '&:hover': {
+                  backgroundColor:
+                    router.pathname === item.url
+                      ? theme.palette.primary.main
+                      : 'rgba(0, 0, 0, 0.04)'
+                }
               }}
             >
               <ListItemIcon
@@ -95,9 +126,8 @@ function AccountDrawerComponent() {
         <ListItem disablePadding>
           <ListItemButton
             sx={{
-              minHeight: 48,
-              justifyContent: open ? 'initial' : 'center',
-              px: 2.5
+              ...ListItemButtonSx,
+              justifyContent: open ? 'initial' : 'center'
             }}
           >
             <ListItemIcon
@@ -107,7 +137,7 @@ function AccountDrawerComponent() {
                 justifyContent: 'center'
               }}
             >
-              <LogoutIcon fill={'#fff'} />
+              <LogoutIcon />
             </ListItemIcon>
             <ListItemText
               primary='Sair da conta'

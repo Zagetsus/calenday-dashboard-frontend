@@ -32,6 +32,12 @@ export const closedMixin = (theme: ThemeProps): CssObjectProps => ({
   }
 });
 
+export const ListItemButtonSx = {
+  minHeight: 48,
+  px: 2.5,
+  borderRadius: '8px'
+};
+
 export const Drawer = styled(MuiDrawer, {
   shouldForwardProp: prop => prop !== 'open'
 })(({ theme, open }) => ({
@@ -42,7 +48,7 @@ export const Drawer = styled(MuiDrawer, {
   '& .MuiPaper-root': {
     padding: '24px 0',
     height: '100vh',
-    background: theme.palette.primary.main
+    background: theme.palette.background.default
   },
   [theme.breakpoints.down('lg')]: {
     '& .MuiPaper-root': {

@@ -1,7 +1,6 @@
 import { useState } from 'react';
-import { Box, Typography } from '~/app/presentation/components';
+import { Box, SchedulingCreateModalTag } from '~/app/presentation/components';
 import {
-  SchedulingCreateModalTag,
   SchedulingDashboardTag,
   SchedulingPanelTag,
   SideFlapTag,

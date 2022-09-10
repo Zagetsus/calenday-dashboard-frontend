@@ -1,6 +1,9 @@
-import { Box } from '~/app/presentation/components';
+import { useState } from 'react';
+import { Box, SchedulingCreateModalTag } from '~/app/presentation/components';
 import {
+  DashboardAttendanceChartTag,
   DashboardAverageTicketAndServiceChartTag,
+  DashboardCancellationFeeTag,
   DashboardGeneralAverageTag,
   DashboardHeadingTag,
   DashboardMainResumeTag,
@@ -10,10 +13,13 @@ import {
 import makeStyles from './dashboard-styles';
 
 function DashboardComponent() {
+  const [createModal, setCreateModal] = useState(false);
   const classes = makeStyles();
   return (
     <Box className={classes.container}>
-      <DashboardHeadingTag>Dashboard</DashboardHeadingTag>
+      <DashboardHeadingTag handleOpenCreateModal={() => setCreateModal(true)}>
+        Dashboard
+      </DashboardHeadingTag>
       <Box className={classes.wrapper}>
         <Box>
           <DashboardMainResumeTag
@@ -23,6 +29,10 @@ function DashboardComponent() {
           />
 
           <DashboardAverageTicketAndServiceChartTag />
+
+          <DashboardAttendanceChartTag date={'Agosto/2022'} />
+
+          <DashboardCancellationFeeTag />
         </Box>
         <Box>
           <DashboardTopEmployeesTag />
@@ -38,6 +48,11 @@ function DashboardComponent() {
           />
         </Box>
       </Box>
+
+      <SchedulingCreateModalTag
+        open={createModal}
+        handleClose={() => setCreateModal(false)}
+      />
     </Box>
   );
 }

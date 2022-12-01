@@ -4,7 +4,7 @@ export default makeStyles({
   container: {
     maxWidth: '996px',
     margin: '0 auto',
-    paddingBottom: '145px'
+    padding: '48px 0 145px'
   },
   title: {
     fontWeight: 700,

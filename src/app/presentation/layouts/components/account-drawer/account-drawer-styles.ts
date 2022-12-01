@@ -28,7 +28,7 @@ export const closedMixin = (theme: ThemeProps): CssObjectProps => ({
   },
   [theme.breakpoints.up('lg')]: {
     width: '5rem',
-    padding: '24px 10px'
+    padding: '0 10px'
   }
 });
 
@@ -81,6 +81,6 @@ export default makeStyles({
     }
   },
   toolbar: {
-    height: '95px'
+    minHeight: '95px'
   }
 });

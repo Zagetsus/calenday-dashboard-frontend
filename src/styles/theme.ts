@@ -130,6 +130,33 @@ const theme = createTheme({
               boxShadow: 'none'
             }
           }
+        },
+        {
+          props: { variant: 'outlined' },
+          style: {
+            fontSize: '1rem',
+            color: '#0A4182',
+            borderColor: '#0A4182',
+            backgroundColor: 'transparent',
+            lineHeight: '1.25rem',
+            fontWeight: 500,
+            '&:hover': {
+              color: '#0A59B6',
+              borderColor: '#0A59B6',
+              backgroundColor: 'transparent'
+            },
+            '&:disabled': {
+              color: '#CECECE',
+              textDecoration: 'none',
+              backgroundColor: 'transparent'
+            },
+            '&:focus-visible': {
+              border: '0.0625rem solid #3F0B6D',
+              backgroundColor: 'transparent',
+              borderRadius: '0.25rem',
+              boxShadow: 'none'
+            }
+          }
         }
       ]
     },

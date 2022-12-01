@@ -1,4 +1,5 @@
 import { Box, Typography } from '~/app/presentation/components';
+import { InventoryHeadingTag } from '~/app/presentation/pages/inventory/components';
 import makeStyles from './inventory-styles';
 
 function InventoryComponent() {
@@ -6,7 +7,7 @@ function InventoryComponent() {
 
   return (
     <Box className={classes.container}>
-      <Typography className={classes.title}>Estoque</Typography>
+      <InventoryHeadingTag />
     </Box>
   );
 }

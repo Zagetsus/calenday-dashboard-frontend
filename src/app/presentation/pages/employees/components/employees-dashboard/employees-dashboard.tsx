@@ -6,7 +6,8 @@ function EmployeesDashboardComponent({
   managers,
   hairdressers,
   manicures,
-  others
+  others,
+  openModal
 }: EmployeesDashboardProps) {
   const classes = makeStyles();
 
@@ -33,7 +34,9 @@ function EmployeesDashboardComponent({
         </Box>
       </Box>
 
-      <ButtonTag variantStyle='contained'>Novo Funcionário</ButtonTag>
+      <ButtonTag onClick={openModal} variantStyle='contained'>
+        Novo Funcionário
+      </ButtonTag>
     </Box>
   );
 }

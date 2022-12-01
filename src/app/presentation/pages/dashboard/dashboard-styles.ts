@@ -4,7 +4,7 @@ export default makeStyles({
   container: {
     maxWidth: '996px',
     margin: '0 auto',
-    paddingBottom: '100px'
+    padding: ' 48px 0 100px'
   },
   wrapper: {
     display: 'flex',

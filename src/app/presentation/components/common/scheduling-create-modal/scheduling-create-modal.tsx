@@ -22,7 +22,12 @@ function SchedulingCreateModalComponent({
   });
   const classes = makeStyles();
   return (
-    <Modal open={open} onClose={handleClose} className={classes.modal}>
+    <Modal
+      data-testid='scheduling-create-modal'
+      open={open}
+      onClose={handleClose}
+      className={classes.modal}
+    >
       <Slide in={open} direction={'left'}>
         <Box className={classes.container}>
           <button onClick={handleClose} className={classes.closed}>

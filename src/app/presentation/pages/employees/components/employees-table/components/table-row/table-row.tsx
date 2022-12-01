@@ -1,3 +1,4 @@
+import { format } from 'date-fns';
 import {
   Avatar,
   Box,
@@ -10,10 +11,12 @@ import {
   SchedulingIcon,
   TrashIcon
 } from '~/app/presentation/components/icons';
+import { TableRowProps } from '~/app/presentation/pages/employees/components/employees-table/components/interfaces/table-row-props.interface';
 import makeStyles from './table-row-styles';
 
-function TableRowComponent() {
+function TableRowComponent({ employee, openScheduling }: TableRowProps) {
   const classes = makeStyles();
+  const date = format(new Date(employee.createdAt), 'MMMM/yyyy');
 
   return (
     <Box className={classes.container}>
@@ -22,25 +25,24 @@ function TableRowComponent() {
           <Avatar />
 
           <Box>
-            <Typography className='name'>Leila Ferreira</Typography>
-            <Typography className='occupation'>Cabeleireira</Typography>
+            <Typography className='name'>{employee.name}</Typography>
+            <Typography className='occupation'>{employee.specialty}</Typography>
           </Box>
         </Box>
       </Box>
       <Box className='create-at'>
-        <Typography className={classes.rowText}>Outubro/2021</Typography>
+        <Typography className={classes.rowText}>{date}</Typography>
       </Box>
       <Box className='phone'>
-        <Typography className={classes.rowText}>+55 11 9 5555-4444</Typography>
+        <Typography className={classes.rowText}>{employee.phone}</Typography>
       </Box>
       <Box className='email'>
-        <Typography className={classes.rowText}>
-          leilacabeleireiraleila@uol.com.br
-        </Typography>
+        <Typography className={classes.rowText}>{employee.email}</Typography>
       </Box>
       <Box className='services'>
         <Button
           className={classes.button}
+          onClick={openScheduling}
           startIcon={<SchedulingIcon size={16} />}
         >
           Ver agendamentos

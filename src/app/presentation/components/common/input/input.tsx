@@ -50,6 +50,7 @@ function InputComponent({
 
   return (
     <Controller
+      data-testid='input-control'
       name={name}
       control={control}
       defaultValue=''

@@ -3,4 +3,5 @@ export interface EmployeesDashboardProps {
   hairdressers: number;
   manicures: number;
   others: number;
+  openModal: () => void;
 }
